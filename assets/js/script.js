@@ -9,82 +9,101 @@ var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 // Array of special characters to be included in password
 var specialCharacters = [
   '@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'];
-// Password criteria selection variables
-var getLength = "";
-var lowerCase = "";
-var upperCase = "";
-var numbers = "";
+// Array that includes each character array
+var allCharactersSelected = "";
+
+
+var length = "";
+var lowerCaseConfirm = "";
+var upperCaseConfirm = "";
+var numericConfirm = "";
 var specialConfirm = "";
 
-var getLength = function() { 
-    while (length === "" || length === null) {
-        length = prompt("How many characters would you like for your password to be? Please enter a value between 8 and 128.");
-    }
-    if (length >= 8 && length <= 128) {
-      console.log("chosen password length is " + length);
-      return length;
+var result = "";
+
+
+var getUserInput = function () {
+  length = parseInt(prompt("Please enter desired password length. Value must be between 8 and 128."));
+    if (length >= 8 && length <=128) {
+      console.log("Chosen password length is " + length + " .");
+      console.log(length);
+    } else if (Number.isNaN(length)) {
+      alert("a numeric value must be entered");
+      return null;
     }
     else {
-      alert("Please enter a valid password length.")
-      getLength();
-    }  
-};
-
-var lowerCaseConfirm = function() {
-    while (lowerCase === "" || lowerCase === null) {
-      lowerCase = confirm("Do you want to include lower case characters?");
+      alert("Please enter a value between 8 and 128.")
+      return null;
     }
-    if (lowerCase) {
-        console.log("lower case characters will be used.");
-        return lowerCase;
+  lowerCaseConfirm = confirm("Do you want to include lower case characters?");
+    if (lowerCaseConfirm) {
+      console.log("lower case characters will be used")
     } else {
       console.log("lower case characters will not be used.");
     }
-};
-    
-var upperCaseConfirm = function() {
-  var upperCase = "";
-    while (upperCase === "" || upperCase === null) {
-      upperCase = confirm("Do you want to include upper-case characters?");
-    }
-    if (upperCase) {
-        console.log("Upper case characters will be used.");
-        return upperCase;
+  upperCaseConfirm = confirm("Do you want to include upper-case characters?");
+    if (upperCaseConfirm) {
+      console.log("Upper case characters will be used.");
     } else {
       console.log("upper case characters will not be used.");
     }
-};
-
-var numericConfirm = function(){
-  var numerics = "";
-    while (numerics === "" || numerics === null) {
-      numerics = confirm("Do you want to include numeric characters?");
-    }
-    if (numerics) {
-        console.log("Numeric characters will be used.");
-        return numerics;
+  numericConfirm = confirm("Do you want to include numeric characters?");
+    if (numericConfirm) {
+      console.log("Numeric characters will be used.");
     } else {
       console.log("Numeric characters will not be used.");
     }
+  specialConfirm = confirm("Do you want to include special characters?");
+    if (specialConfirm) {
+      console.log("Special characters will be used.");
+    } else {
+      console.log("Special characters will not be used.")
+    } 
+  if (!lowerCaseConfirm && !upperCaseConfirm && !numericConfirm && !specialConfirm) {
+    alert("You must use at least one type of character!")
+    getUserInput();
+  }
 };
-    
-var specialConfirm = function() {
-  
-    while (specialConfirm === "" || specialConfirm === null) {
-      specialConfirm = confirm("Do you want to include special characters?");
-      return specialConfirm;
-    }
 
-};  
+// user input values are now available globally
+// create a function which uses the user's input to create a random character of all selected options for each location in the length
+// the loop needs to identify what character types are confirmed / true.
+// the loop needs to generate a random character from the confirmed characters arrays, for each character for length number of characters.
+
+// generates a random lowercase password of input length.
+var createPassword = function () {
+  if (lowerCaseConfirm) {
+    allCharactersSelected = allCharactersSelected.concat(lowerCasedCharacters);
+  }
+  if (upperCaseConfirm) {
+    allCharactersSelected = allCharactersSelected.concat(upperCasedCharacters);
+  }
+  if (numericConfirm) {
+    allCharactersSelected = allCharactersSelected.concat(numericCharacters);
+  }
+  if (specialConfirm) {
+    allCharactersSelected = allCharactersSelected.concat(specialCharacters)
+  }
+  console.log(allCharactersSelected); 
+  
+  for (var i = 0; i < length; i++) {
+    result = result.push(Math.floor(Math.random()*allCharactersSelected.length));
+    console.log(result);
+  }
+};
+
+
+
+
+
 
 var generatePassword = function() {
-  // debugger;  
-  getLength();
-  lowerCaseConfirm();
-  upperCaseConfirm();
-  numericConfirm();
-  specialConfirm();
-}
+  debugger;
+  getUserInput();
+  createPassword();
+  alert(result);
+};
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -100,3 +119,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
