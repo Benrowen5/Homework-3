@@ -10,7 +10,7 @@ var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var specialCharacters = [
   '@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'];
 // Array that includes each character array
-var allCharactersSelected = "";
+var allCharactersSelected = []
 
 
 var length = "";
@@ -19,7 +19,9 @@ var upperCaseConfirm = "";
 var numericConfirm = "";
 var specialConfirm = "";
 
-var result = "";
+var result = [];
+// empty array for adding the randomly selected characters to.
+var pass = []; 
 
 
 var getUserInput = function () {
@@ -71,7 +73,32 @@ var getUserInput = function () {
 // the loop needs to generate a random character from the confirmed characters arrays, for each character for length number of characters.
 
 // generates a random lowercase password of input length.
-var createPassword = function () {
+// var createPassword = function () {
+//   if (lowerCaseConfirm) {
+//     allCharactersSelected = allCharactersSelected.concat(lowerCasedCharacters);
+//   }
+//   if (upperCaseConfirm) {
+//     allCharactersSelected = allCharactersSelected.concat(upperCasedCharacters);
+//   }
+//   if (numericConfirm) {
+//     allCharactersSelected = allCharactersSelected.concat(numericCharacters);
+//   }
+//   if (specialConfirm) {
+//     allCharactersSelected = allCharactersSelected.concat(specialCharacters)
+//   }
+//   console.log(allCharactersSelected);
+  
+//   for (var i = 0; i < length; i++) {
+//     var result = Math.floor(Math.random()*allCharactersSelected.length);
+//     pass += (allCharactersSelected[result]);
+//     console.log(pass);
+//   }
+//   return pass;
+// };
+
+var generatePassword = function() {
+  debugger;
+  getUserInput();
   if (lowerCaseConfirm) {
     allCharactersSelected = allCharactersSelected.concat(lowerCasedCharacters);
   }
@@ -84,24 +111,14 @@ var createPassword = function () {
   if (specialConfirm) {
     allCharactersSelected = allCharactersSelected.concat(specialCharacters)
   }
-  console.log(allCharactersSelected); 
+  console.log(allCharactersSelected);
   
   for (var i = 0; i < length; i++) {
-    result = result.push(Math.floor(Math.random()*allCharactersSelected.length));
-    console.log(result);
+    var result = Math.floor(Math.random()*allCharactersSelected.length);
+    pass += (allCharactersSelected[result]);
+    console.log(pass);
   }
-};
-
-
-
-
-
-
-var generatePassword = function() {
-  debugger;
-  getUserInput();
-  createPassword();
-  alert(result);
+  return pass;
 };
 
 
