@@ -8,5 +8,5 @@ A baseline acceptance criteria was provided and all items have been completed. T
 https://benrowen5.github.io/Homework-3/ </br></br>
 
 ## Screenshot:</br>
-https://github.com/Benrowen5/Homework-3/blob/main/assets/images/RandomPassGeneratorScreenshot.PNG
+![RandomPassGeneratorScreenshot](https://user-images.githubusercontent.com/79202800/133155634-e5c5a0a2-0a78-4ed9-9b59-4533ff2f2817.PNG)
 
