@@ -72,30 +72,6 @@ var getUserInput = function () {
 // the loop needs to identify what character types are confirmed / true.
 // the loop needs to generate a random character from the confirmed characters arrays, for each character for length number of characters.
 
-// generates a random lowercase password of input length.
-// var createPassword = function () {
-//   if (lowerCaseConfirm) {
-//     allCharactersSelected = allCharactersSelected.concat(lowerCasedCharacters);
-//   }
-//   if (upperCaseConfirm) {
-//     allCharactersSelected = allCharactersSelected.concat(upperCasedCharacters);
-//   }
-//   if (numericConfirm) {
-//     allCharactersSelected = allCharactersSelected.concat(numericCharacters);
-//   }
-//   if (specialConfirm) {
-//     allCharactersSelected = allCharactersSelected.concat(specialCharacters)
-//   }
-//   console.log(allCharactersSelected);
-  
-//   for (var i = 0; i < length; i++) {
-//     var result = Math.floor(Math.random()*allCharactersSelected.length);
-//     pass += (allCharactersSelected[result]);
-//     console.log(pass);
-//   }
-//   return pass;
-// };
-
 var generatePassword = function() {
   debugger;
   getUserInput();
