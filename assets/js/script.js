@@ -31,13 +31,12 @@ const regexForUpperCase = /([A-Z]{1})/;
 // function to get desired password length.
 var getLength = function() {
   length = parseInt(prompt("Please enter desired password length. Value must be between 8 and 128."));
-  if (length >= 8 && length <=128) {
-    console.log("Chosen password length is " + length + " .");
-  } else if (Number.isNaN(length)) {
-      alert("a numeric value must be entered.");
-      getLength();
-  } else {
-      alert("Please enter a value between 8 and 128.")
+  if (length < 8 || length > 128) {
+    alert("Please enter a value between 8 and 128.")
+    getLength();
+  }
+  if (Number.isNaN(length)) {
+      alert("A numeric value must be entered.");
       getLength();
   }
 };
@@ -85,10 +84,8 @@ function passwordLoop() {
   // reset pass array.
   pass = [];
   for (var i = 0; i < length; i++) {
-    // store the index 
-    var result = Math.floor(Math.random()*allCharactersSelected.length);
-    // add character based on selected character types at index of 'result' to new array.
-    pass += (allCharactersSelected[result]);
+    // generates a random index and stores the character from the allCharacters array to a new array.
+    pass += allCharactersSelected[Math.floor(Math.random()*allCharactersSelected.length)];
     }
   return pass;
 };
@@ -124,8 +121,8 @@ function regexCheck() {
    };
 };
 
+// Calls all functions and returns generated password.
 var generatePassword = function() {
-  debugger;
   getLength();
   getCriteria();
   passwordLoop();
