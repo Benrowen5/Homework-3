@@ -1,4 +1,4 @@
-## Homework Challenge #3 - Javascript password generator
+## Javascript password generator
 
 ## Description:</br>
 This challenge was to utilize Javascript to create a functional random password generator based on the provided starter code. This application runs in the browser and is responsive to various screen sizes. The functionality of the application is dependant on input provided by the user. All user input is validated in order to prevent any errors from occurring. 
