@@ -5,7 +5,7 @@ This challenge was to utilize Javascript to create a functional random password 
 A baseline acceptance criteria was provided and all items have been completed. The code has been written to maintain readability, organization, and context. A unique repository was created to store the project and deploy the application.</br></br>
 
 ## Link to deployed application:</br>
-https://benrowen5.github.io/Homework-3/ </br></br>
+https://benrowen5.github.io/Random-password-generator/ </br></br>
 
 ## Screenshot:</br>
 ![RandomPassGeneratorScreenshot](https://user-images.githubusercontent.com/79202800/133155634-e5c5a0a2-0a78-4ed9-9b59-4533ff2f2817.PNG)
